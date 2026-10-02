@@ -1,0 +1,29 @@
+{
+  "cover": [
+    "",
+    "",
+    "",
+    "<ns0:pPr xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:jc ns0:val=\"center\" /></ns0:pPr>",
+    "",
+    "",
+    "",
+    "",
+    "<ns0:pPr xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:tabs><ns0:tab ns0:val=\"left\" ns0:pos=\"1350\" /></ns0:tabs><ns0:rPr><ns0:bCs /></ns0:rPr></ns0:pPr>",
+    "",
+    "",
+    "",
+    "",
+    "<ns0:pPr xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:keepNext /></ns0:pPr>",
+    "",
+    "",
+    "",
+    "<ns0:pPr xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:keepNext /></ns0:pPr>",
+    "<ns0:pPr xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:jc ns0:val=\"center\" /></ns0:pPr>",
+    "",
+    "<ns0:pPr xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:keepNext /></ns0:pPr>"
+  ],
+  "links_heading": "<ns0:pPr xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:keepNext /><ns0:keepLines /><ns0:pageBreakBefore /><ns0:spacing ns0:after=\"160\" /></ns0:pPr>",
+  "group": "<ns0:pPr xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:keepNext /><ns0:keepLines /><ns0:spacing ns0:before=\"200\" ns0:after=\"160\" /><ns0:jc ns0:val=\"center\" /></ns0:pPr>",
+  "entry": "<ns0:pPr xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:keepNext /><ns0:keepLines /></ns0:pPr>",
+  "field": "<ns0:pPr xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:keepNext /><ns0:keepLines /></ns0:pPr>"
+}

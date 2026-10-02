@@ -1,0 +1,44 @@
+Project: Example Clinic — DEMONSTRATION ONLY
+Architect: Example Architecture
+Date on Drawings: 2026-09-10
+Area:
+Scale: As Indicated
+Specifications: no
+
+Group: Ceramic
+Tag: T-1
+Type: Porcelain Floor Tile
+Detail: Example Tile, Stone Series, Gray, Stacked pattern
+Size: 12 x 24 inches
+Size Source: drawing
+Location: Lobby 101
+Grout: G-1, Example Grout, Gray, 1/8-inch joint
+Source: Demonstration A601, row T-1
+
+Group: Concrete/Epoxy/Terrazzo
+Tag: C-1
+Type: Sealed Concrete
+Detail: Sealed concrete
+System: poured
+Location: Storage 103
+Source: Demonstration A601, row C-1
+
+Group: Base
+Tag: RB-1
+Type: Rubber Base
+Detail: Example Rubber, Blue, 4-inch height
+Location: Lobby 101
+Source: Demonstration A601, row RB-1
+
+Group: Grout
+Tag: G-1 / T-1
+Detail: Example Grout, Gray, 1/8-inch joint
+Location: Lobby 101
+Source: Demonstration A601, row G-1
+
+Group: Trim/Transition
+Tag: 6/A17.10
+Type: Tile to Concrete
+Detail: Metal transition strip
+Location: Lobby 101 to Storage 103
+Source: Demonstration 6/A17.10
