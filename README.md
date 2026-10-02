@@ -9,7 +9,7 @@ Open a terminal in **this folder**:
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe -m streamlit run app.py --server.address=127.0.0.1
+.\.venv\Scripts\python.exe -m streamlit run app.py --server.address=0.0.0.0 --server.port=8501
 ```
 
 After setup, double-click **Start App.bat**. Open the local URL printed in the terminal. No Microsoft Word installation is needed to generate files.
