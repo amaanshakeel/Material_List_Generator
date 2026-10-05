@@ -29,6 +29,17 @@ Location: Lobby 101
 NS = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
 
 class CoreTests(unittest.TestCase):
+    def test_clipboard_only_trailing_line_is_ignored(self):
+        expected = parse_text(SAMPLE)
+        for artifact in ('\u200b', '\ufeff', '\u200b\ufeff'):
+            with self.subTest(artifact=repr(artifact)):
+                self.assertEqual(parse_text(SAMPLE + '\n' + artifact), expected)
+
+    def test_invalid_line_error_identifies_the_actual_text(self):
+        with self.assertRaises(InputError) as error:
+            parse_text(SAMPLE + '\nUnexpected trailing text')
+        self.assertIn('Unexpected trailing text', str(error.exception))
+
     def test_word_compatibility_prefixes_are_declared(self):
         with ZipFile(io.BytesIO(generate_docx(parse_text(SAMPLE)))) as z:
             xml = z.read('word/document.xml')

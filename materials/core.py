@@ -101,11 +101,17 @@ def parse_text(text):
             raise InputError(f'Invalid JSON at line {e.lineno}. Use the provided ChatGPT prompt.') from None
     project, items, current = {}, [], None
     for number, raw in enumerate(text.splitlines(), 1):
+        # Clipboard copies can append visually blank lines containing a BOM or
+        # zero-width space. Ignore only blank artifacts; preserve field values.
+        if not raw.replace('\ufeff', '').replace('\u200b', '').strip():
+            continue
         line = raw.strip().replace('**', '')
         if not line or line in ('---', '```', '```text'): continue
         line = re.sub(r'^[-*]\s+', '', line)
         if ':' not in line:
-            raise InputError(f'Line {number}: expected Label: value. Use the provided prompt; keep each field on one line.')
+            preview = ascii(raw[:160])
+            raise InputError(f'Line {number}: expected Label: value. Found {preview}. '
+                             'Remove extra text or use the provided prompt; keep each field on one line.')
         label, value = line.split(':', 1)
         key = LABELS.get(label.lower().strip(), label.lower().strip().replace(' ', '_'))
         value = value.strip()
