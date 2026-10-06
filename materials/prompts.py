@@ -18,7 +18,7 @@ Specifications: no
 Group: Ceramic
 Tag: source tag, or blank
 Type: source material type
-Detail: exact supported manufacturer, product, color, finish, pattern
+Detail: exact supported manufacturer, product, color, finish, size, installation method/pattern
 Size: length/width only; omit thickness
 Size Source: drawing
 Size Evidence:
@@ -34,6 +34,9 @@ Repeat Evidence:
 Scope: included
 
 Repeat Group: and its fields for every further material. Allowed groups: GROUP_NAMES.
+Include the supported size in Detail before the installation method/pattern, and
+also on the separate Size line. Omit missing sizes and installation methods.
+Use comma-separated Detail components.
 Size Source and Repeat Source: drawing, manufacturer, or mixed. Manufacturer or
 mixed sizes/repeats need their exact official URL in Size Evidence/Repeat Evidence.
 Only provide manufacturer facts actually verified during this extraction. If web

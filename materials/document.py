@@ -54,6 +54,32 @@ def field(body, label, value, props=None, keep=True, yellow=False, color=None):
     run(p, value, yellow=yellow, color=color)
     return p
 
+
+def detail_with_size(material):
+    """Include supplied dimensions before a comma-delimited installation clause."""
+    detail = material['detail']
+    size = material['size']
+    if not size:
+        return detail
+    # Repeat is already added to Detail by validation; insert dimensions separately.
+    dimensions = re.split(r",?\s*Pattern Repeat\b", size, maxsplit=1, flags=re.I)[0].strip(' ,;')
+    if not dimensions:
+        return detail
+    clauses = re.split(r'\s*[,;]\s*', detail)
+    installation = re.compile(
+        r'^(?:install(?:ation|ed)?\b|lay(?:ing)?\b|pattern\s*:|'
+        r'ashlar\b|monolithic\b|quarter[ -]turn\b|herringbone\b|'
+        r'running bond\b|stack(?:ed)?(?: bond)?\b|brick(?:work)?\b|'
+        r'random\b|(?:\d+%|third|half) offset\b|glue[ -]down\b|'
+        r'full[ -]spread\b|direct[ -]glue\b|loose[ -]lay\b)', re.I)
+    # Move an existing standalone size, preserving all other source wording.
+    clauses = [c for c in clauses if c.casefold() != dimensions.casefold()]
+    if not any(dimensions.casefold() in c.casefold() for c in clauses):
+        index = next((i for i, c in enumerate(clauses) if installation.match(c)), len(clauses))
+        clauses.insert(index, dimensions)
+    return ', '.join(clauses)
+
+
 def generate_docx(report, generated_on=None, drawing_image=None):
     # Revalidate at the output boundary, including reports from alternate callers.
     report = validate({'project': report.project, 'materials': report.materials})
@@ -102,7 +128,7 @@ def generate_docx(report, generated_on=None, drawing_image=None):
             compact = group in ('Base', 'Grout', 'Trim/Transition')
             title = m['tag']
             if m['type']: title = f'{title} ({m["type"]})' if title else m['type']
-            detail = m['detail']
+            detail = detail_with_size(m)
             color = 'FF0000' if m['scope'] == 'nic' else None
             if m['scope'] == 'nic': detail += ', NIC / Not Estimated'
             if m['scope'] == 'existing': detail += ', Existing — not new procurement'
